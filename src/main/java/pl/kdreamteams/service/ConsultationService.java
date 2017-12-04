@@ -41,9 +41,17 @@ public class ConsultationService {
         planPosition.setDataEnd(startHour + ":" + String.format("%02d", startMinute));
         planPosition.setDataStart(endHour + ":" + String.format("%02d", endMinute));
         planPosition.setName("Consultation");
+        planPosition.setDescription("");
         planPosition.setRoom(employee.getRoom().getNumber());
+
         plan.setSchedule(new HashMap<String, List<SchedulePosition>>());
-        plan.getSchedule().put(employee.getConsultationDay(), Collections.singletonList(planPosition));
+        for(String dayOfWeek : this.weekDays){
+            if(dayOfWeek.equals(employee.getConsultationDay())){
+                plan.getSchedule().put(employee.getConsultationDay(), Collections.singletonList(planPosition));
+            } else {
+                plan.getSchedule().put(dayOfWeek,null);
+            }
+        }
         return plan;
     }
 }
