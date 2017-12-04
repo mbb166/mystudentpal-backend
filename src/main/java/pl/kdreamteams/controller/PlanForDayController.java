@@ -47,7 +47,7 @@ public class PlanForDayController {
             if(dayOfWeek.equals(dayName)){
                 schedule.getSchedule().put(dayName,schedulePositions.size() > 0 ? schedulePositions : new ArrayList<SchedulePosition>() );
             } else {
-                schedule.getSchedule().put(dayOfWeek,null);
+                schedule.getSchedule().put(dayOfWeek,new ArrayList<SchedulePosition>());
             }
         }
         return schedule;
