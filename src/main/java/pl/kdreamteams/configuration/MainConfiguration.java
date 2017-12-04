@@ -1,6 +1,8 @@
 package pl.kdreamteams.configuration;
 
 import org.hibernate.SessionFactory;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -34,7 +36,7 @@ public class MainConfiguration extends WebMvcConfigurerAdapter{
         return new MappingJackson2JsonView();
     }
 
-    @Bean
+    //@Bean
     public SessionFactory getSessionFactory() {
         return new org.hibernate.cfg.Configuration().buildSessionFactory();
     }
