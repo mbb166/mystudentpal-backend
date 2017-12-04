@@ -3,6 +3,7 @@ package pl.kdreamteams.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.kdreamteams.model.Employee;
+import pl.kdreamteams.model.Room;
 
 import javax.sql.DataSource;
 
@@ -10,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 @Repository
 public class RoomRepository {
@@ -22,14 +25,22 @@ public class RoomRepository {
         employee.setId(resultSet.getLong(1));
         employee.setName(resultSet.getString(2));
         employee.setSurname(resultSet.getString(3));
-        //employee.
+        employee.setBirthDate(resultSet.getDate(4));
+        employee.setConsultationDate(resultSet.getDate(5));
 
+        Room room = new Room();
+        room.setId(resultSet.getLong(6));
+        room.setNumber(resultSet.getLong(7));
+        room.setBuilding(resultSet.getString(8));
+        room.setLevel(resultSet.getLong(9));
 
-        do {
+        Set<Employee> employeeSet = new HashSet<Employee>();
+        employeeSet.add(employee);
+        room.setEmployess(employeeSet);
 
-        } while (resultSet.next());
+        employee.setRoom(room);
 
-        return null;
+        return employee;
     }
 
     public Employee getEmployeesWithRooms(String employeeName){
@@ -44,9 +55,9 @@ public class RoomRepository {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, employeeName);
             resultSet = preparedStatement.getResultSet();
-            return null;//mapRowsetToModel(resultSet);
+            return mapResultSetToModel(resultSet);
         } catch (SQLException ex) {
-
+            ex.printStackTrace();
         }
         return null;
     }

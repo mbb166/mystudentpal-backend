@@ -11,6 +11,8 @@ public class Employee {
     private Date consultationDate;
     private Room room;
 
+
+
     public Long getId() {
         return id;
     }

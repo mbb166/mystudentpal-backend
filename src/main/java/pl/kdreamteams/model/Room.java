@@ -7,7 +7,15 @@ public class Room {
     private Long number;
     private String building;
     private Long level;
-    private Set<Employee> employess;
+    private Set<Employee> employees;
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployess(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
     public Long getId() {
         return id;
