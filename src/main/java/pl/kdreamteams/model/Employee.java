@@ -1,14 +1,43 @@
 package pl.kdreamteams.model;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class Employee {
 
     private Long id;
     private String name;
     private String surname;
+
+    public String getConsultationDay() {
+        return consultationDay;
+    }
+
+    public void setConsultationDay(String consultationDay) {
+        this.consultationDay = consultationDay;
+    }
+
+    private String consultationDay;
     private Date birthDate;
-    private Date consultationDate;
+
+    public Time getStartConsultationDate() {
+        return startConsultationDate;
+    }
+
+    public void setStartConsultationDate(Time startConsultationDate) {
+        this.startConsultationDate = startConsultationDate;
+    }
+
+    public Time getEndConsultationDate() {
+        return endConsultationDate;
+    }
+
+    public void setEndConsultationDate(Time endConsultationDate) {
+        this.endConsultationDate = endConsultationDate;
+    }
+
+    private Time startConsultationDate;
+    private Time endConsultationDate;
     private Room room;
 
     public Long getId() {
@@ -41,14 +70,6 @@ public class Employee {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Date getConsultationDate() {
-        return consultationDate;
-    }
-
-    public void setConsultationDate(Date consultationDate) {
-        this.consultationDate = consultationDate;
     }
 
     public Room getRoom() {

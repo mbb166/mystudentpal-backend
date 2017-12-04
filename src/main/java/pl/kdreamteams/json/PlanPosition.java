@@ -1,6 +1,6 @@
 package pl.kdreamteams.json;
 
-public class WorkDay {
+public class PlanPosition {
     private String name;
     private String dataStart;
 
@@ -20,17 +20,17 @@ public class WorkDay {
         this.dataEnd = dataEnd;
     }
 
-    public int getRoom() {
+    public long getRoom() {
         return room;
     }
 
-    public void setRoom(int room) {
+    public void setRoom(long room) {
         this.room = room;
     }
 
     private String dataEnd;
 
-    private int room;
+    private long room;
 
     public String getName() {
         return name;

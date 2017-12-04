@@ -3,11 +3,8 @@ package pl.kdreamteams.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.kdreamteams.json.Plan;
-import pl.kdreamteams.json.WorkDay;
+import pl.kdreamteams.json.TeacherNameRequest;
 import pl.kdreamteams.service.ConsultationService;
-
-import javax.sql.DataSource;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("/consultation")
@@ -18,7 +15,7 @@ public class ConsultationController {
 
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
-    Plan getConsultationPlan(@RequestBody String name) {
-        return consultationService.getSchedule("");
+    Plan getConsultationPlan(@RequestBody TeacherNameRequest name) {
+        return consultationService.getSchedule(name.getTeacherName());
     }
 }
