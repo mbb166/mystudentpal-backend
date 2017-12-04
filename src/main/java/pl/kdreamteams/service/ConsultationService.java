@@ -47,9 +47,9 @@ public class ConsultationService {
         plan.setSchedule(new HashMap<String, List<SchedulePosition>>());
         for(String dayOfWeek : this.weekDays){
             if(dayOfWeek.equals(employee.getConsultationDay())){
-                plan.getSchedule().put(employee.getConsultationDay(), Collections.singletonList(planPosition));
+                plan.getSchedule().put(employee.getConsultationDay().toLowerCase(), Collections.singletonList(planPosition));
             } else {
-                plan.getSchedule().put(dayOfWeek,new ArrayList<SchedulePosition>());
+                plan.getSchedule().put(dayOfWeek.toLowerCase(),new ArrayList<SchedulePosition>());
             }
         }
         return plan;
