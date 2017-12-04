@@ -83,115 +83,115 @@ public class ScheduleService {
 
             //Monday
             decrementDate(actualDate);
-            Timestamp monday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> mondaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Monday",  mapScheduleToSchedulePosition(mondaySchedule));
             //Wednesday
             setDateIncrement(actualDate, 2);
-            Timestamp wednesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> wednesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Wednesday",  mapScheduleToSchedulePosition(wednesdaySchedule));
             //Thursday
             incrementDate(actualDate);
-            Timestamp thursday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> thursdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Thursday",  mapScheduleToSchedulePosition(thursdaySchedule));
             //Friday
             incrementDate(actualDate);
-            Timestamp friday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> fridaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Friday",  mapScheduleToSchedulePosition(fridaySchedule));
         } else if (dayName.equals(DayName.WEDNESDAY.getDayName())) {
             //Wednesday
-            Timestamp wednesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> wednesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Wednesday",  mapScheduleToSchedulePosition(wednesdaySchedule));
             //Monday
             setDateIncrement(actualDate, -2);
-            Timestamp monday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> mondaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Monday",  mapScheduleToSchedulePosition(mondaySchedule));
             //Tuesday
             incrementDate(actualDate);
-            Timestamp tuesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> tuesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Tuesday",  mapScheduleToSchedulePosition(tuesdaySchedule));
             //Thursday
             setDateIncrement(actualDate, 2);
-            Timestamp thursday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> thursdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Thursday",  mapScheduleToSchedulePosition(thursdaySchedule));
             //Friday
             incrementDate(actualDate);
-            Timestamp friday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> fridaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Friday",  mapScheduleToSchedulePosition(fridaySchedule));
         } else if (dayName.equals(DayName.THURSDAY.getDayName())) {
             //Thursday
-            Timestamp thursday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> thursdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Thursday",  mapScheduleToSchedulePosition(thursdaySchedule));
             //Monday
             setDateIncrement(actualDate, -3);
-            Timestamp monday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> mondaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Monday",  mapScheduleToSchedulePosition(mondaySchedule));
             //Tuesday
             incrementDate(actualDate);
-            Timestamp tuesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> tuesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Tuesday",  mapScheduleToSchedulePosition(tuesdaySchedule));
             //Wednesday
             incrementDate(actualDate);
-            Timestamp wednesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> wednesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Wednesday",  mapScheduleToSchedulePosition(wednesdaySchedule));
             //Friday
             setDateIncrement(actualDate, 2);
-            Timestamp friday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> fridaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Friday",  mapScheduleToSchedulePosition(fridaySchedule));
         } else if (dayName.equals(DayName.FRIDAY.getDayName())) {
             //Friday
-            Timestamp friday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> fridaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Friday",  mapScheduleToSchedulePosition(fridaySchedule));
             //Monday
             setDateIncrement(actualDate, -4);
-            Timestamp monday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> mondaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Monday",  mapScheduleToSchedulePosition(mondaySchedule));
             //Tuesday
             incrementDate(actualDate);
-            Timestamp tuesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> tuesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Tuesday",  mapScheduleToSchedulePosition(tuesdaySchedule));
             //Wednesday
             incrementDate(actualDate);
-            Timestamp wednesday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> wednesdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Wednesday",  mapScheduleToSchedulePosition(wednesdaySchedule));
             //Thursday
             incrementDate(actualDate);
-            Timestamp thursday = getTimestampFromDate(dateFormat, actualDate);
+
             List<Schedule> thursdaySchedule = planForDayRepository
                     .getScheduleForDay(actualDate, groupName);
             days.put("Thursday",  mapScheduleToSchedulePosition(thursdaySchedule));
