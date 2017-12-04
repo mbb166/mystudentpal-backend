@@ -11,7 +11,7 @@ import pl.kdreamteams.json.TeacherNameRequest;
 @RequestMapping("/room")
 public class RoomController {
 
-    private
+    
 
     @RequestMapping(value = "/findRoom", method = RequestMethod.POST)
     public Message findEmployeeRoom(@RequestBody TeacherNameRequest teacherName) {
