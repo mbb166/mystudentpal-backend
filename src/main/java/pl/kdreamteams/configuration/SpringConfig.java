@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "pl.kdreamteams.*" })
-@Import({ SecurityConfig.class })
+//@Import({ SecurityConfig.class })
 public class SpringConfig extends WebSecurityConfigurerAdapter{
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
