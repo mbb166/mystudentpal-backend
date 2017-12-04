@@ -21,6 +21,7 @@ public class RoomRepository {
     private DataSource dataSource;
 
     private Employee mapResultSetToModel(ResultSet resultSet) throws SQLException {
+        resultSet.next();
         Employee employee = new Employee();
         employee.setId(resultSet.getLong(1));
         employee.setName(resultSet.getString(2));
@@ -48,13 +49,14 @@ public class RoomRepository {
         PreparedStatement preparedStatement;
         ResultSet resultSet;
         String sql = "select e.id, e.name, e.surname, e.birth_date, e.consultation_time, r.id, r.number, r.building, r.level " +
-                "     from employees e join rooms r on e.id_room = r.id where e.surname = ?";
+                "     from employees e join rooms r on e.id_room = r.id where e.surname like ?";
 
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, employeeName);
-            resultSet = preparedStatement.getResultSet();
+
+            resultSet = preparedStatement.executeQuery();
             return mapResultSetToModel(resultSet);
         } catch (SQLException ex) {
             ex.printStackTrace();

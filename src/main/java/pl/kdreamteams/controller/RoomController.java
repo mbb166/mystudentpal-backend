@@ -21,8 +21,6 @@ public class RoomController {
 
     @RequestMapping(value = "/findRoom", method = RequestMethod.POST)
     public Message findEmployeeRoom(@RequestBody TeacherNameRequest teacherName) {
-        Message message = new Message();
-        message.setMessage(teacherName.getTeacherName());
-        return message;
+        return roomService.getEmployeesWithRoomForSurname(teacherName.getTeacherName());
     }
 }
