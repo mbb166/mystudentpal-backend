@@ -6,6 +6,7 @@ import pl.kdreamteams.json.Schedule;
 import pl.kdreamteams.json.TeacherNameRequest;
 import pl.kdreamteams.service.ConsultationService;
 
+
 @RestController
 @RequestMapping("/consultation")
 public class ConsultationController {
@@ -13,6 +14,7 @@ public class ConsultationController {
     @Autowired
     private ConsultationService consultationService;
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
     Schedule getConsultationPlan(@RequestBody TeacherNameRequest name) {
