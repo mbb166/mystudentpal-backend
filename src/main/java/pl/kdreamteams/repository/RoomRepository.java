@@ -1,20 +1,28 @@
 package pl.kdreamteams.repository;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @Repository
 public class RoomRepository {
 
     @Autowired
-    private DriverManagerDataSource dataSource;
+    private DataSource dataSource;
 
-    public void getRooms(){
+   
 
+    public void getEmployeesWithRooms(){
+        Connection connection;
+
+        try {
+            connection = dataSource.getConnection();
+        } catch (SQLException ex) {
+
+        }
     }
 
 }
