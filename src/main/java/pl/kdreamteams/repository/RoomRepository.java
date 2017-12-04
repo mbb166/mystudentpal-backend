@@ -38,7 +38,6 @@ public class RoomRepository {
         employee.setName(resultSet.getString(2));
         employee.setSurname(resultSet.getString(3));
         employee.setBirthDate(resultSet.getDate(4));
-        employee.setConsultationDate(resultSet.getDate(5));
 
         Room room = new Room();
         room.setId(resultSet.getLong(6));
