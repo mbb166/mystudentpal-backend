@@ -37,7 +37,7 @@ public class PlanForDayController {
     public @ResponseBody
     Schedule getConsultationPlan(@RequestBody PlanForDayRequest req) throws ParseException {
         Schedule schedule = new Schedule();
-        DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
         Date date =  df.parse(req.getDate());
         List<SchedulePosition> schedulePositions = planForDayService
                 .getPlanForDay(date,req.getGroupName());

@@ -27,6 +27,7 @@ public class PlanForDayService {
             schedulePosition.setDataStart(String.format("%02d",schedule.getDateEnd().getHours()) + ":" + String.format("%02d",schedule.getDateEnd().getMinutes()));
             schedulePosition.setName(schedule.getSubject().getName());
             schedulePosition.setRoom(245);
+            schedulePositions.add(schedulePosition);
         }
         return schedulePositions;
     }

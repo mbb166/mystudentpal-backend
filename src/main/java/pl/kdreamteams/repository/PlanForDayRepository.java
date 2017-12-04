@@ -27,7 +27,7 @@ public class PlanForDayRepository {
         PreparedStatement preparedStatement;
         ResultSet resultSet;
         String sql = "select s.data_start, s.data_end, su.name" +
-                "     from (schedule s join group g on s.id_group = g.id) join subjects su on s.id_subject = su.id where g.name = ? and EXTRACT(DAY FROM TIMESTAMP s.data_start) = ? ORDER  BY  s.data_start;";
+                "     from (schedule s join \"group\" g on s.id_group = g.id) join subjects su on s.id_subject = su.id where g.name = ? and s.data_start::DATE = ? ORDER  BY  s.data_start;";
 
         try {
             connection = dataSource.getConnection();
@@ -43,6 +43,7 @@ public class PlanForDayRepository {
                 schedule.setDateEnd(resultSet.getTimestamp(2));
                 schedule.setSubject(new Subject());
                 schedule.getSubject().setName(resultSet.getString(3));
+                schedules.add(schedule);
             }
 
             return schedules;
