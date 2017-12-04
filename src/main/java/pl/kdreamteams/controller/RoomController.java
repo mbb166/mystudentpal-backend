@@ -1,18 +1,14 @@
 package pl.kdreamteams.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import pl.kdreamteams.json.Message;
 import pl.kdreamteams.json.TeacherNameRequest;
 import pl.kdreamteams.service.RoomService;
 
-import javax.sql.DataSource;
-
 @RestController
+@CrossOrigin
 @RequestMapping("/room")
 public class RoomController {
 
