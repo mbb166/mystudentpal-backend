@@ -30,7 +30,7 @@ public class ConsultationService {
     public Schedule getSchedule(String teacherName){
         Employee employee = consultationRepository.getConsultation(teacherName);
         Time startTime = employee.getStartConsultationDate();
-        Time endTime = employee.getStartConsultationDate();
+        Time endTime = employee.getEndConsultationDate();
         int startHour = startTime.getHours();
         int endHour = endTime.getHours();
         int startMinute = startTime.getMinutes();
