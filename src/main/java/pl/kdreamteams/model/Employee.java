@@ -1,14 +1,14 @@
 package pl.kdreamteams.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Employee {
 
     private Long id;
     private String name;
     private String surname;
-    private Timestamp birthdate;
-    private Timestamp consultationDate;
+    private Date birthDate;
+    private Date consultationDate;
     private Room room;
 
     public Long getId() {
@@ -35,19 +35,19 @@ public class Employee {
         this.surname = surname;
     }
 
-    public Timestamp getBirthdate() {
-        return birthdate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdate(Timestamp birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public Timestamp getConsultationDate() {
+    public Date getConsultationDate() {
         return consultationDate;
     }
 
-    public void setConsultationDate(Timestamp consultationDate) {
+    public void setConsultationDate(Date consultationDate) {
         this.consultationDate = consultationDate;
     }
 
