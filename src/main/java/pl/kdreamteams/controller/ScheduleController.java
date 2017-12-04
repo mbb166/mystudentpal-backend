@@ -3,9 +3,11 @@ package pl.kdreamteams.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pl.kdreamteams.json.GroupNameRequest;
 import pl.kdreamteams.json.Schedule;
+import pl.kdreamteams.service.ScheduleService;
 
 import javax.sql.DataSource;
 
@@ -14,9 +16,10 @@ import javax.sql.DataSource;
 public class ScheduleController {
 
     @Autowired
-    private DataSource dataSource;
-
+    private ScheduleService scheduleService;
+    @RequestMapping(value="/findSchedule", method = RequestMethod.POST)
     public Schedule findScheduleByGroupName(@RequestBody GroupNameRequest gameNameRequest) {
-        return null;
+
+        return scheduleService.findScheduleByGroupName(gameNameRequest.getGroup());
     }
 }
