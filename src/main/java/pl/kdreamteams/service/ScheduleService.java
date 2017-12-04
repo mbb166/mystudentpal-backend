@@ -29,9 +29,6 @@ public class ScheduleService {
         date.setDate(date.getDate() + val);
     }
 
-    private Timestamp getTimestampFromDate(DateFormat dateFormat, Date date) {
-        return  Timestamp.valueOf(dateFormat.format(date));
-    }
 
     private Map<String,List<SchedulePosition>> checkDayNameFromDate(String groupName) {
         Date actualDate = new Date();
@@ -202,7 +199,7 @@ public class ScheduleService {
 
     private List<SchedulePosition> mapScheduleToSchedulePosition(List<Schedule> schedule) {
         ListIterator<Schedule> scheduleListIterator = schedule.listIterator();
-        List<SchedulePosition> schedulePositions = new LinkedList<SchedulePosition>();
+        List<SchedulePosition> schedulePositions = new ArrayList<SchedulePosition>();
         DateFormat dateFormat = new SimpleDateFormat("hh:MM");
 
         while(scheduleListIterator.hasNext()) {
