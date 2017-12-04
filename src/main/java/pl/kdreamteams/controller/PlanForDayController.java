@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.kdreamteams.json.Schedule;
 import pl.kdreamteams.json.PlanForDayRequest;
-import pl.kdreamteams.json.TeacherNameRequest;
 import pl.kdreamteams.service.ConsultationService;
 
 @RestController

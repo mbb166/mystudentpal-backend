@@ -40,10 +40,10 @@ public class RoomRepository {
         employee.setBirthDate(resultSet.getDate(4));
 
         Room room = new Room();
-        room.setId(resultSet.getLong(6));
-        room.setNumber(resultSet.getLong(7));
-        room.setBuilding(resultSet.getString(8));
-        room.setLevel(resultSet.getLong(9));
+        room.setId(resultSet.getLong(5));
+        room.setNumber(resultSet.getLong(6));
+        room.setBuilding(resultSet.getString(7));
+        room.setLevel(resultSet.getLong(8));
 
         Set<Employee> employeeSet = new HashSet<Employee>();
         employeeSet.add(employee);
@@ -58,7 +58,7 @@ public class RoomRepository {
         Connection connection;
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String sql = "select e.id, e.name, e.surname, e.birth_date, e.consultation_time, r.id, r.number, r.building, r.level " +
+        String sql = "select e.id, e.name, e.surname, e.birth_date,r.id, r.number, r.building, r.level " +
                 "     from employees e join rooms r on e.id_room = r.id where e.surname like ?";
 
         try {
