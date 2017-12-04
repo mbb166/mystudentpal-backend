@@ -1,6 +1,6 @@
 package pl.kdreamteams.json;
 
-public class PlanPosition {
+public class SchedulePosition {
     private String name;
     private String dataStart;
 
@@ -30,7 +30,7 @@ public class PlanPosition {
 
     private String dataEnd;
 
-    private long room;
+    private Long room;
 
     public String getName() {
         return name;
