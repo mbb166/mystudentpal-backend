@@ -21,7 +21,6 @@ public class Subject {
         this.description = description;
     }
 
-    private String description;
 
     public Long getId() {
         return id;
