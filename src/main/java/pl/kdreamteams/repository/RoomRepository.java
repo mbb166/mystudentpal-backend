@@ -20,6 +20,17 @@ public class RoomRepository {
     @Autowired
     private DataSource dataSource;
 
+    private void close(ResultSet resultSet, PreparedStatement preparedStatement, Connection connection){
+        try {
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch  (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
     private Employee mapResultSetToModel(ResultSet resultSet) throws SQLException {
         resultSet.next();
         Employee employee = new Employee();
@@ -57,7 +68,10 @@ public class RoomRepository {
             preparedStatement.setString(1, employeeName);
 
             resultSet = preparedStatement.executeQuery();
-            return mapResultSetToModel(resultSet);
+
+            Employee employee = mapResultSetToModel(resultSet);
+            close(resultSet, preparedStatement, connection);
+            return employee;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
