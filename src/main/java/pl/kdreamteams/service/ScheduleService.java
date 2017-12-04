@@ -209,7 +209,7 @@ public class ScheduleService {
             schedulePosition.setDataStart(dateFormat.format(schedule1.getDateStart()));
             schedulePosition.setDataEnd(dateFormat.format(schedule1.getDateEnd()));
             schedulePosition.setDescription(schedule1.getSubject().getDescription());
-            schedulePosition.setRoom(0);
+            schedulePosition.setRoom(schedule1.getRoomNumber());
             schedulePositions.add(schedulePosition);
         }
         return schedulePositions;
