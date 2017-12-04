@@ -18,7 +18,7 @@
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
-/mystudentpal
+/mystudentpal.iml
 
 # Gradle:
 .idea/**/gradle.xml
