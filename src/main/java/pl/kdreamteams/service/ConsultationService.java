@@ -38,8 +38,8 @@ public class ConsultationService {
         Schedule plan = new Schedule();
         plan.setMessage("Next consultation starts at " + startHour + ":" + String.format("%02d", startMinute) + " " + employee.getConsultationDay() + ".");
         SchedulePosition planPosition = new SchedulePosition();
-        planPosition.setDataEnd(startHour + ":" + String.format("%02d", startMinute));
-        planPosition.setDataStart(endHour + ":" + String.format("%02d", endMinute));
+        planPosition.setDataStart(String.format("%02d",startHour) + ":" + String.format("%02d", startMinute));
+        planPosition.setDataEnd(String.format("%02d",endHour) + ":" + String.format("%02d", endMinute));
         planPosition.setName("Consultation");
         planPosition.setDescription("");
         planPosition.setRoom(employee.getRoom().getNumber());
