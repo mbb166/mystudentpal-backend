@@ -3,36 +3,48 @@ package pl.kdreamteams.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.kdreamteams.json.Plan;
-import pl.kdreamteams.json.WorkDay;
-import pl.kdreamteams.repository.RoomRepository;
+import pl.kdreamteams.json.PlanPosition;
+import pl.kdreamteams.model.Employee;
+import pl.kdreamteams.repository.ConsultationRepository;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 @Service
 public class ConsultationService {
 
     @Autowired
-    RoomRepository roomRepository;
+    private ConsultationRepository consultationRepository;
+
+    private String [] weekDays;
+
+    public ConsultationService(){
+        weekDays = new String[5];
+        weekDays[0] = "Monday";
+        weekDays[1] = "Thuesday";
+        weekDays[2] = "Wednesday";
+        weekDays[3] = "Thursday";
+        weekDays[4] = "Friday";
+    }
 
     public Plan getSchedule(String teacherName){
-        Date date = new Date();
-        Timestamp timestamp = Timestamp.valueOf("2007-09-23 10:10:10.0");
-        int hours = timestamp.getHours();
-        int minutes = timestamp.getMinutes();
-        String dayName = (new SimpleDateFormat("EEEE")).format(timestamp.getTime());
+        Employee employee = consultationRepository.getConsultation(teacherName);
+        Time startTime = employee.getStartConsultationDate();
+        Time endTime = employee.getStartConsultationDate();
+        int startHour = startTime.getHours();
+        int endHour = endTime.getHours();
+        int startMinute = startTime.getMinutes();
+        int endMinute = endTime.getMinutes();
         Plan plan = new Plan();
-        plan.setMessage("msg");
-        WorkDay wrkday = new WorkDay();
-        wrkday.setDataEnd(hours + ":" + minutes);
-        wrkday.setDataStart(hours + ":" + minutes);
-        wrkday.setName(dayName);
-        wrkday.setRoom(213);
-        plan.setSchedule(new HashMap<String, WorkDay>());
-        plan.getSchedule().put(dayName,wrkday);
+        plan.setMessage("Next consultation starts at " + startHour + ":" + String.format("%02d", startMinute) + " " + employee.getConsultationDay() + ".");
+        PlanPosition planPosition = new PlanPosition();
+        planPosition.setDataEnd(startHour + ":" + String.format("%02d", startMinute));
+        planPosition.setDataStart(endHour + ":" + String.format("%02d", endMinute));
+        planPosition.setName("Consultation");
+        planPosition.setRoom(employee.getRoom().getNumber());
+        plan.setSchedule(new HashMap<String, List<PlanPosition>>());
+        plan.getSchedule().put(employee.getConsultationDay(), Collections.singletonList(planPosition));
         return plan;
     }
 }
