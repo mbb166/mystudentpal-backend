@@ -39,4 +39,14 @@ public class Schedule {
     private Subject subject;
     private Timestamp dateStart;
     private Timestamp dateEnd;
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    private int roomNumber;
 }
