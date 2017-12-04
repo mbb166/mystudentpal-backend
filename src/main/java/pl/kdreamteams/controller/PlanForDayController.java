@@ -45,7 +45,7 @@ public class PlanForDayController {
         String dayName = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
         for(String dayOfWeek : this.weekDays){
             if(dayOfWeek.equals(dayName)){
-                schedule.getSchedule().put(dayName,schedulePositions.size() > 0 ? schedulePositions : null );
+                schedule.getSchedule().put(dayName,schedulePositions.size() > 0 ? schedulePositions : new ArrayList<SchedulePosition>() );
             } else {
                 schedule.getSchedule().put(dayOfWeek,null);
             }

@@ -49,7 +49,7 @@ public class ConsultationService {
             if(dayOfWeek.equals(employee.getConsultationDay())){
                 plan.getSchedule().put(employee.getConsultationDay(), Collections.singletonList(planPosition));
             } else {
-                plan.getSchedule().put(dayOfWeek,null);
+                plan.getSchedule().put(dayOfWeek,new ArrayList<SchedulePosition>());
             }
         }
         return plan;
